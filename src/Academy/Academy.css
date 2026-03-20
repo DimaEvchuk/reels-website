@@ -1,0 +1,231 @@
+/* Academy page (route: /academy) */
+
+.academyPage {
+  min-height: 100vh;
+  background: linear-gradient(185deg, #ff583d -12%, #000 71.14%);
+  padding-bottom: 40px;
+}
+
+.academyTop {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 22px 64px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.academyBack {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.academyBackArrow {
+  font-size: 26px;
+  opacity: 0.95;
+}
+
+.academyFilters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.academyFilter {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.academyFilter.active {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 1);
+}
+
+.academySection {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 64px;
+}
+
+.academySectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+
+.academySectionTitle {
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.academySeeAll {
+  color: #8d5dda;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+.academyRowLarge {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.academyRowLarge::-webkit-scrollbar {
+  height: 8px;
+}
+
+.academyRowLarge::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.academyLargeCard {
+  flex: 0 0 210px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.academyLargeCardMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.academyLargeCardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.academyLargeCardBottom {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 12px;
+  line-height: 1.15;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.academyBadge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: rgba(239, 123, 60, 0.95);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.academySection--trending {
+  padding-top: 8px;
+}
+
+.academyRowSmall {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.academySmallCard {
+  flex: 0 0 170px;
+  height: 205px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.academySmallCardMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.academySmallCardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.academyBadge--small {
+  font-size: 10px;
+  padding: 6px 9px;
+}
+
+.academySmallCardBottom {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 11px;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 900px) {
+  .academyTop {
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 12px;
+  }
+
+  .academyFilters {
+    gap: 6px;
+  }
+
+  .academyFilter {
+    padding: 6px 10px;
+  }
+
+  .academySection {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .academyLargeCard {
+    flex-basis: 180px;
+  }
+
+  .academySmallCard {
+    flex-basis: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .academyRowLarge,
+  .academyRowSmall {
+    scroll-behavior: auto;
+  }
+}
+
