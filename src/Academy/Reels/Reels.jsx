@@ -8,12 +8,18 @@ const Reels = () => {
   const videoRefs = useRef([]);
 
   const handleMouseEnter = (index) => {
-    videoRefs.current[index].play();
+    const v = videoRefs.current[index];
+    if (!v) return;
+    // Ignore play errors caused by browser autoplay policies.
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
   };
 
   const handleMouseLeave = (index) => {
-    videoRefs.current[index].pause();
-    videoRefs.current[index].currentTime = 0;
+    const v = videoRefs.current[index];
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
   };
 
   return (
