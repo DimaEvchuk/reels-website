@@ -7,6 +7,7 @@
   /* background-repeat: no-repeat; */
 
   opacity: 0.95;
+  min-height: 100vh;
   /* width: 100vw; */
   /* height: 100vh; */
   /* background: linear-gradient(197deg, #ff583d 0%, #000 71.14%); */
@@ -17,15 +18,24 @@
   background-repeat: no-repeat;
   /* background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%); */
   /* height: 400px; */
+  min-height: 100vh;
 }
 .homePage {
-  padding: 0px 107px 0px 107px;
+  padding: 0 64px;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 .title {
-  font-size: 32px;
+  font-size: 22px;
   color: #ffffff;
   font-family: "PT Root UI", sans-serif;
-  padding-top: 18px;
-  padding-bottom: 46px;
+  padding-top: 22px;
+  padding-bottom: 26px;
+}
+
+@media (max-width: 900px) {
+  .homePage {
+    padding: 0 18px;
+  }
 }

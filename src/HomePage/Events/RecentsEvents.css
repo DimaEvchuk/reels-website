@@ -1,10 +1,22 @@
-/* .allBlockEvent{
+.allBlockEvent {
   display: flex;
-  flex-wrap: nowrap;
   flex-direction: row;
+  gap: 16px;
+  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-gutter: stable;
+}
 
+.allBlockEvent::-webkit-scrollbar {
+  height: 8px;
+}
 
-} */
+.allBlockEvent::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
 .blockEvent {
   display: flex;
   flex-direction: column;
@@ -14,8 +26,18 @@
   backdrop-filter: blur(50px);
   border-radius: 20px;
   font-size: 16px;
-  padding: 10px;
-  margin-right: .8em;
+  padding: 14px 14px 12px 14px;
+  flex: 0 0 220px;
+  height: 240px;
+  transition: transform 0.2s ease;
+}
+
+.blockEvent:hover {
+  transform: translateY(-4px);
+}
+
+.blockEvent:active {
+  transform: translateY(-2px);
 }
 
 .speaker {
@@ -30,9 +52,9 @@
 }
 
 .photo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
 }
 
 .person,
@@ -52,6 +74,7 @@
 .person {
   justify-content: space-between;
   padding-bottom: 0.5em;
+  align-items: flex-start;
 }
 .price {
   display: flex;
@@ -75,13 +98,15 @@
 }
 
 .titleEvent {
-  width: 270px;
-  height: 2em;
-  font-size: 1.5em;
+  height: 3.2em;
+  font-size: 1.15em;
   font-family: "Random Grotesque Standard Bold", sans-serif;
+  line-height: 1.05;
+  overflow: hidden;
 }
 .subTitle {
-  font-size: 0.8em;
+  font-size: 0.78em;
+  gap: 6px;
 }
 .subTitle p {
   opacity: 0.5;
@@ -99,8 +124,8 @@
 }
 
 .footerBlock {
-  border-top: 2px dashed rgba(255, 255, 255, 0.2);
-  padding-top: 1em;
+  border-top: 1px dashed rgba(255, 255, 255, 0.25);
+  padding-top: 0.9em;
   justify-content: space-between;
 }
 .footerBlock::before {
@@ -118,5 +143,48 @@
   font-size: 0.8em;
   border-radius: 0.5em;
   border: 1px solid var(--minor-white-f-2-f-1-f-320, rgba(242, 241, 243, 0.2));
-  padding: 0.625em 0.88em 0.562em 0.88em;
+  padding: 0.55em 0.88em 0.5em 0.88em;
+  background: rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.blockEvent {
+  animation: cardIn 0.55s ease both;
+}
+
+.allBlockEvent .blockEvent:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.allBlockEvent .blockEvent:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.allBlockEvent .blockEvent:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.allBlockEvent .blockEvent:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.allBlockEvent .blockEvent:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blockEvent:hover {
+    transform: none;
+  }
+
+  .blockEvent {
+    animation: none;
+  }
 }

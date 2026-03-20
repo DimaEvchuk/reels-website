@@ -1,12 +1,14 @@
 .blinks {
-	margin-top: 6em;
+	margin-top: 3em;
   border-radius: 27px;
-  background: #8d5dda;
+  background: linear-gradient(90deg, #7c4be0 0%, #8d5dda 45%, #ff583d 120%);
   font-size: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+  overflow: hidden;
+  padding: 22px 30px;
 }
 
 .content {
@@ -15,7 +17,8 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 3em;
+  padding-left: 0;
+  flex: 0 0 45%;
 }
 
 .coin {
@@ -26,32 +29,57 @@
 	padding-right: 10px;
 }
 .blinkTitle {
-  font-size: 5em;
+  font-size: clamp(26px, 4.3vw, 44px);
   color: white;
 }
 .answer_btn {
-  font-size: 1.5em;
+  font-size: 1.1em;
   margin-left: 0px;
+  margin-top: 18px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
 }
 
 .svgImage {
-  flex: 1 1 70%;
+  flex: 1 1 55%;
   display: flex;
-  position: absolute;
-}
-
-.svgImage {
+  justify-content: flex-end;
   position: relative;
+  min-height: 120px;
 }
 
 .svg1 {
   position: absolute;
-  rotate: 30deg;
-  padding-left: 14em;
+  right: 30px;
+  top: 10px;
+  transform: rotate(30deg);
 	z-index: 2;
 }
 .svg2 {
   position: absolute;
-  padding-left: 23em;
-  padding-top: 10em;
+  right: 10px;
+  top: 60px;
+}
+
+@media (max-width: 900px) {
+  .blinks {
+    padding: 18px 16px;
+  }
+  .content {
+    flex-basis: 60%;
+  }
+  .svg1 {
+    right: 14px;
+  }
+  .svg2 {
+    right: 0px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blinks {
+    scroll-behavior: auto;
+  }
 }
