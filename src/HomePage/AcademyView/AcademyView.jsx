@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./AcademyView.css";
-import AcademyJSON from "../../../Academy.json";
+import AcademyJSON from "../../Academy.json";
 
 const AcademyView = () => {
   const videoRefs = useRef([]);
