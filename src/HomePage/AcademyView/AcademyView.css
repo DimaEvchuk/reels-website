@@ -1,4 +1,146 @@
-.AcademyView .data-display__section {
-  width: 150px;
-  height: 222px;
+.AcademyView {
+  padding-top: 30px;
+}
+
+.academyHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 18px;
+}
+
+.academyTitle {
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  color: #ffffff;
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+.seeAll {
+  color: #8d5dda;
+  font-size: 0.95em;
+  font-weight: 400;
+}
+
+.academyRow {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-gutter: stable;
+}
+
+.academyRow::-webkit-scrollbar {
+  height: 8px;
+}
+
+.academyRow::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.academyCard {
+  flex: 0 0 150px;
+  height: 232px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.academyCard:hover {
+  transform: translateY(-4px);
+}
+
+.academyCard__media {
+  position: relative;
+  height: 155px;
+}
+
+.academyCard__media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.academyCard__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+}
+
+.academyCard__badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(239, 123, 60, 0.95);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 700;
+  font-size: 0.78em;
+}
+
+.academyCard__bottom {
+  position: relative;
+  padding: 12px 12px 14px;
+}
+
+.academyCard__name {
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 0.92em;
+  line-height: 1.25;
+  height: 2.5em;
+  overflow: hidden;
+}
+
+.academyRow .academyCard {
+  animation: academyCardIn 0.55s ease both;
+}
+.academyRow .academyCard:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.academyRow .academyCard:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.academyRow .academyCard:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.academyRow .academyCard:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.academyRow .academyCard:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+@keyframes academyCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .academyCard {
+    flex-basis: 140px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .academyCard:hover {
+    transform: none;
+  }
+
+  .academyRow .academyCard {
+    animation: none;
+  }
 }

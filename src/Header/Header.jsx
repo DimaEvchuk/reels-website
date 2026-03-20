@@ -7,7 +7,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
 function Header() {
-  const [isClosed, setIsClosed] = useState(true);
+  // By default keep the sidebar visible to match the "Discover" layout.
+  const [isClosed, setIsClosed] = useState(false);
   const headerRef = useRef(null);
 
   const toggleMenu = () => {
@@ -66,7 +67,12 @@ function Header() {
         </nav>
       </header>
 
-      <main>
+      <main
+        style={{
+          marginLeft: isClosed ? 0 : 270,
+          transition: "margin-left 0.3s ease-in-out",
+        }}
+      >
         <Outlet />
       </main>
 
