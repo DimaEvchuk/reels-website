@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "PTRootUIWebRegular";
+  src: url("pt-root-ui_vf.woff2") format("woff2"),
+    url("pt-root-ui_vf.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("https://fonts.cdnfonts.com/css/pt-root-ui?styles=24037");
+
+.qa {
+  display: flex;
+  justify-content: space-between;
+	padding-bottom: 20px;
+}
+
+.qa .titleQA {
+  font-size: 24px;
+  color: #ffffff;
+  font-family: "PT Root UI", sans-serif;
+
+}
+
+.calendar {
+  border: solid 1px rgba(242, 241, 243, 0.1);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+	padding: 9px 12px 9px 12px;
+}
+
+.calendar p {
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 12px;
+  padding-left: 5px;
+	margin: 0px;
+}

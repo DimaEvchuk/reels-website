@@ -1,0 +1,122 @@
+/* .allBlockEvent{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+
+} */
+.blockEvent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background: linear-gradient(239deg, #8d5dda 2.14%, #6f28e2 97.83%);
+  color: white;
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px;
+  margin-right: .8em;
+}
+
+.speaker {
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-size: 1em;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  margin-left: 0.5em;
+}
+
+.photo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.person,
+.subTitle,
+.particalpants,
+.solidOut,
+.footerBlock,
+.dateEvent,
+.speaker {
+  /* flex: 1 1 auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.person {
+  justify-content: space-between;
+  padding-bottom: 0.5em;
+}
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.price p {
+  /* font-family: "PTRootUIWebRegular", sans-serif; */
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.0625em;
+  font-weight: 500;
+  margin: 0px;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+}
+
+.topic {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.titleEvent {
+  width: 270px;
+  height: 2em;
+  font-size: 1.5em;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+}
+.subTitle {
+  font-size: 0.8em;
+}
+.subTitle p {
+  opacity: 0.5;
+  padding-right: 0.3em;
+}
+.solidOut::before {
+  content: "•";
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.particalpants {
+}
+.solidOut {
+}
+
+.footerBlock {
+  border-top: 2px dashed rgba(255, 255, 255, 0.2);
+  padding-top: 1em;
+  justify-content: space-between;
+}
+.footerBlock::before {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+.dateEvent {
+  font-size: 0.8em;
+}
+
+.dateEvent p {
+  opacity: 0.5;
+  padding-right: 0.3em;
+}
+.btnBook {
+  font-size: 0.8em;
+  border-radius: 0.5em;
+  border: 1px solid var(--minor-white-f-2-f-1-f-320, rgba(242, 241, 243, 0.2));
+  padding: 0.625em 0.88em 0.562em 0.88em;
+}

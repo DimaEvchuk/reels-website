@@ -1,0 +1,88 @@
+@import url("https://fonts.cdnfonts.com/css/random-grotesque-standard?styles=138797");
+.poster {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  height: 333px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.text {
+  flex: 1 1 30%;
+  text-align: start;
+  padding-left: 30px;
+}
+.text_title {
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  font-size: 60px;
+}
+
+.text_subtitle {
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  padding-bottom: 38px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+.suggestions_btn {
+  display: flex;
+  background-color: rgba(242, 241, 243, 0.1);
+  border-radius: 21px;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 12px 27.5px 12px 27.5px;
+  cursor: pointer;
+}
+.suggestions_btn p {
+  padding-left: 8px;
+  margin: 0px;
+}
+.answer_btn {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 21px;
+  color: #010101;
+  padding: 12px 27.5px 12px 27.5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.time_left {
+  flex: 1 1 40%;
+  text-align: center;
+}
+.image_poster {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.image_poster img {
+  border-radius: 20px;
+}
+
+.image1 {
+  rotate: -3.71deg;
+  width: 170px;
+  height: auto;
+  z-index: 5;
+  position: relative;
+}
+
+.image2 {
+  rotate: 10.23deg;
+  width: 133px;
+  height: auto;
+  z-index: 4;
+  position: relative;
+  margin-left: -56px;
+  margin-bottom: 72px;
+}

@@ -1,0 +1,31 @@
+/* @import url('https://fonts.cdnfonts.com/css/pt-root-ui?styles=24035'); */
+@import url("https://fonts.cdnfonts.com/css/pt-root-ui?styles=24037");
+
+.home {
+  background: #000000;
+  /* background-size: 100%; */
+  /* background-repeat: no-repeat; */
+
+  opacity: 0.95;
+  /* width: 100vw; */
+  /* height: 100vh; */
+  /* background: linear-gradient(197deg, #ff583d 0%, #000 71.14%); */
+}
+.background {
+  background: linear-gradient(185deg, #ff583d -12%, #000 71.14%);
+  background-size: 200% 80%;
+  background-repeat: no-repeat;
+  /* background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%); */
+  /* height: 400px; */
+}
+.homePage {
+  padding: 0px 107px 0px 107px;
+}
+
+.title {
+  font-size: 32px;
+  color: #ffffff;
+  font-family: "PT Root UI", sans-serif;
+  padding-top: 18px;
+  padding-bottom: 46px;
+}

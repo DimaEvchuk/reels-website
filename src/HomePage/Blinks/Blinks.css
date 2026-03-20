@@ -1,0 +1,57 @@
+.blinks {
+	margin-top: 6em;
+  border-radius: 27px;
+  background: #8d5dda;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 3em;
+}
+
+.coin {
+  font-size: 2em;
+  color: white;
+}
+.coin svg{
+	padding-right: 10px;
+}
+.blinkTitle {
+  font-size: 5em;
+  color: white;
+}
+.answer_btn {
+  font-size: 1.5em;
+  margin-left: 0px;
+}
+
+.svgImage {
+  flex: 1 1 70%;
+  display: flex;
+  position: absolute;
+}
+
+.svgImage {
+  position: relative;
+}
+
+.svg1 {
+  position: absolute;
+  rotate: 30deg;
+  padding-left: 14em;
+	z-index: 2;
+}
+.svg2 {
+  position: absolute;
+  padding-left: 23em;
+  padding-top: 10em;
+}
