@@ -149,7 +149,7 @@
 }
 
 .blockEvent {
-  animation: cardIn 0.55s ease both;
+  animation: cardInEvents 0.55s ease both;
 }
 
 .allBlockEvent .blockEvent:nth-child(2) {
@@ -168,7 +168,7 @@
   animation-delay: 0.25s;
 }
 
-@keyframes cardIn {
+@keyframes cardInEvents {
   from {
     opacity: 0;
     transform: translateY(10px);
