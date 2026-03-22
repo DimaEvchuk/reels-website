@@ -4,7 +4,7 @@ import Community from "./Community/Community.jsx";
 import Watch from "./Watch/Watch.jsx";
 import Academy from "./Academy/Academy.jsx";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="watch" element={<Watch />} />
           <Route path="academy" element={<Academy />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </div>

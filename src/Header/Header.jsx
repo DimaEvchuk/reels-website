@@ -43,6 +43,7 @@ function Header() {
     window.addEventListener("resize", handleResize);
 
     const handleClickOutside = (event) => {
+      if (!isMobile) return;
       if (headerRef.current && !headerRef.current.contains(event.target)) {
         setIsClosed(true);
       }
@@ -54,7 +55,7 @@ function Header() {
       document.removeEventListener("click", handleClickOutside);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
@@ -90,6 +91,7 @@ function Header() {
         <nav className="header_routing">
           <NavLink
             to="/"
+            end
             onClick={closeMenu}
             className={({ isActive }) => `navItem ${isActive ? "active" : ""}`}
           >
@@ -147,13 +149,7 @@ function Header() {
         </div>
       </header>
 
-      <main
-        style={{
-          // On desktop we push the content, on mobile we overlay the sidebar.
-          marginLeft: isMobile ? 0 : isClosed ? 0 : 270,
-          transition: "margin-left 0.3s ease-in-out",
-        }}
-      >
+      <main className="appMain">
         <Outlet />
       </main>
     </>
