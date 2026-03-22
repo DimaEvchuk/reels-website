@@ -12,14 +12,13 @@
 }
 .text {
   flex: 1 1 30%;
+  min-width: 0;
   text-align: start;
-  padding-left: 30px;
+  padding-inline: 30px;
 }
 .text_title {
   font-family: "Random Grotesque Standard Bold", sans-serif;
-  font-size: clamp(40px, 5vw, 56px);
-  line-height: 1.05;
-  margin: 0;
+  font-size: 60px;
 }
 
 .text_subtitle {
@@ -31,47 +30,102 @@
 .buttons {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-}
-.suggestions_btn {
-  display: flex;
-  background-color: rgba(242, 241, 243, 0.1);
-  border-radius: 21px;
-  flex-direction: row;
-  align-items: center;
   flex-wrap: nowrap;
-  padding: 12px 27.5px 12px 27.5px;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.poster .suggestions_btn,
+.poster .answer_btn {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  margin: 0;
+  padding-block: 0;
+  border-radius: 999px;
   cursor: pointer;
+  font-family: "PT Root UI", "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  border: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
 }
-.suggestions_btn p {
-  padding-left: 8px;
-  margin: 0px;
+
+.poster .suggestions_btn:active,
+.poster .answer_btn:active {
+  transform: scale(0.98);
 }
-.answer_btn {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 21px;
-  color: #010101;
-  padding: 12px 27.5px 12px 27.5px;
-  margin-left: 10px;
-  cursor: pointer;
-}
-.posterPrimary {
+
+.poster .suggestions_btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  margin-left: 0;
-  font-weight: 700;
-}
-.posterPrimary span {
-  margin: 0;
-}
-.posterGhost {
-  margin-left: 10px;
-  font-size: 14px;
+  flex: 0 0 auto;
+  padding-inline: 18px 20px;
+  background-color: #2a2a2a;
   color: #ffffff;
+  box-shadow: none;
+}
+
+.poster .suggestions_btn:hover {
+  background-color: #383838;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.poster .suggestions_btn:focus-visible,
+.poster .answer_btn:focus-visible {
+  outline: 2px solid rgba(141, 93, 218, 0.9);
+  outline-offset: 2px;
+}
+
+.poster .suggestions_btnIcon {
+  flex-shrink: 0;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.poster .suggestions_btnLabel {
+  margin: 0;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.poster .answer_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding-inline: 22px;
+  background-color: #ffffff;
+  color: #121212;
+}
+
+.poster .answer_btn:hover {
+  background-color: #f2f2f2;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster .suggestions_btn,
+  .poster .answer_btn {
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .poster .suggestions_btn:active,
+  .poster .answer_btn:active {
+    transform: none;
+  }
 }
 .time_left {
   flex: 1 1 40%;

@@ -1,8 +1,13 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AcademyView.css";
 import AcademyJSON from "../../Academy.json";
 
+const ACADEMY_VIDEO_SRC = "/Reels/reells2.webm";
+const PLAYLIST_CHUNK = 4;
+
 const AcademyView = () => {
+  const navigate = useNavigate();
   const videoRefs = useRef([]);
 
   const topics = (AcademyJSON?.sections || []).flatMap((section) =>
@@ -29,11 +34,23 @@ const AcademyView = () => {
     }
   };
 
+  const goWatch = (index, title) => {
+    const playlistStart = Math.floor(index / PLAYLIST_CHUNK) * PLAYLIST_CHUNK;
+    const reelIndex = index - playlistStart;
+    navigate("/watch", {
+      state: { reelIndex, playlistStart, title },
+    });
+  };
+
   return (
     <section className="AcademyView">
       <div className="academyHeader">
         <div className="academyTitle">Academy</div>
-        <div className="seeAll">
+        <button
+          type="button"
+          className="seeAll"
+          onClick={() => navigate("/academy")}
+        >
           See All
           <svg
             width="16"
@@ -50,22 +67,31 @@ const AcademyView = () => {
               fill="#8D5DDA"
             />
           </svg>
-        </div>
+        </button>
       </div>
 
-      <div className="academyRow" role="list">
+      <div className="academyRow" role="group" aria-label="Academy">
         {visibleTopics.map((topic, index) => (
           <div
             key={`${topic.title}-${index}`}
             className="academyCard"
-            role="listitem"
+            role="button"
+            tabIndex={0}
+            aria-label={`Открыть урок: ${topic.title}`}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
+            onClick={() => goWatch(index, topic.title)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                goWatch(index, topic.title);
+              }
+            }}
           >
             <div className="academyCard__media">
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                src="/Reels/Rells1(360p21rfSocial).mp4"
+                src={ACADEMY_VIDEO_SRC}
                 loop
                 muted
                 playsInline

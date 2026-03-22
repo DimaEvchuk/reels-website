@@ -1,91 +1,263 @@
+@import url("https://fonts.cdnfonts.com/css/random-grotesque-standard?styles=138797");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
 .blinks {
-	margin-top: 3em;
-  border-radius: 27px;
-  background: linear-gradient(90deg, #7c4be0 0%, #8d5dda 45%, #ff583d 120%);
-  font-size: 10px;
+  margin-top: 3em;
+  position: relative;
+  border-radius: clamp(24px, 4vw, 40px);
+  background-color: #9266e3;
+  overflow: hidden;
+  animation: blinksIn 0.6s ease both;
+}
+
+/* Декоративная белая «скоба» в правом нижнем углу, как в макете */
+.blinks::after {
+  content: "";
+  position: absolute;
+  right: clamp(14px, 2.2vw, 22px);
+  bottom: clamp(14px, 2.2vw, 22px);
+  width: clamp(40px, 7vw, 56px);
+  height: clamp(40px, 7vw, 56px);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 0 0 clamp(16px, 3vw, 24px) 0;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.blinks__gradient {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(72%, 640px);
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 45%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.blinks__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: clamp(12px, 3vw, 28px);
+  min-height: clamp(200px, 26vw, 259px);
+  padding: clamp(18px, 2.5vw, 24px) clamp(20px, 3vw, 32px)
+    clamp(18px, 2.5vw, 24px) clamp(28px, 5vw, 52px);
+}
+
+.blinks__content {
+  position: relative;
+  z-index: 3;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 20px);
+  max-width: min(100%, 420px);
+}
+
+.blinks__eyebrow {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  overflow: hidden;
-  padding: 22px 30px;
+  gap: 7px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+.blinks__eyebrow-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.blinks__eyebrow-text {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(16px, 2.1vw, 20px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.blinks__title {
+  margin: 0;
+  padding: 0;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  font-size: clamp(28px, 5.2vw, 50px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.blinks__title-line {
+  display: block;
+}
+
+.blinks__title-line + .blinks__title-line {
+  margin-top: 0.06em;
+}
+
+.blinks .answer_btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  padding-left: 0;
-  flex: 0 0 45%;
-}
-
-.coin {
-  font-size: 2em;
-  color: white;
-}
-.coin svg{
-	padding-right: 10px;
-}
-.blinkTitle {
-  font-size: clamp(26px, 4.3vw, 44px);
-  color: white;
-}
-.answer_btn {
-  font-size: 1.1em;
-  margin-left: 0px;
-  margin-top: 18px;
-  padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: clamp(4px, 1vw, 8px);
+  padding: 12px clamp(18px, 3vw, 24px);
+  border: none;
   border-radius: 999px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "PT Root UI", "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
 }
 
-.blinks {
-  animation: blinksIn 0.6s ease both;
+.blinks .answer_btn:hover {
+  background-color: #f2f2f2;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
 }
 
-.svgImage {
-  flex: 1 1 55%;
-  display: flex;
-  justify-content: flex-end;
+.blinks .answer_btn:active {
+  transform: scale(0.98);
+}
+
+.blinks .answer_btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 2px;
+}
+
+.blinks a.answer_btn {
+  text-decoration: none;
+  color: #000000;
+}
+
+.blinks__visual {
   position: relative;
-  min-height: 120px;
+  z-index: 2;
+  flex: 0 1 clamp(220px, 44%, 400px);
+  min-height: clamp(120px, 22vw, 220px);
+  align-self: stretch;
 }
 
-.svg1 {
+.blinks__coin {
   position: absolute;
-  right: 30px;
-  top: 10px;
-  transform: rotate(30deg);
-	z-index: 2;
-}
-.svg2 {
-  position: absolute;
-  right: 10px;
-  top: 60px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
 }
 
-@media (max-width: 900px) {
-  .blinks {
-    padding: 18px 16px;
+.blinks__coin svg {
+  display: block;
+  width: clamp(88px, 17vw, 168px);
+  height: auto;
+}
+
+/* Задняя монета (ниже), сильный наклон — как на референсе */
+.blinks__coin--back {
+  right: clamp(0px, 1.5vw, 12px);
+  bottom: clamp(4px, 2.5vw, 22px);
+  transform: rotate(26deg);
+  z-index: 5;
+}
+
+/* Передняя монета (выше), частично перекрывает заднюю */
+.blinks__coin--front {
+  right: clamp(22px, 7vw, 64px);
+  top: clamp(8px, 3.5vw, 28px);
+  transform: rotate(-14deg);
+  z-index: 6;
+}
+
+@media (max-width: 720px) {
+  .blinks__inner {
+    flex-direction: column;
+    min-height: 0;
+    padding: clamp(16px, 4vw, 22px) clamp(18px, 4vw, 24px)
+      clamp(16px, 4vw, 22px) clamp(20px, 5vw, 36px);
   }
-  .content {
-    flex-basis: 60%;
+
+  .blinks__content {
+    max-width: 100%;
+    order: 1;
   }
-  .svg1 {
-    right: 14px;
+
+  .blinks__visual {
+    flex: 0 0 auto;
+    order: 2;
+    width: 100%;
+    min-height: clamp(150px, 42vw, 210px);
+    margin-top: clamp(4px, 2vw, 10px);
   }
-  .svg2 {
-    right: 0px;
+
+  .blinks__gradient {
+    width: min(68%, 340px);
+    object-position: 65% 40%;
+  }
+
+  .blinks__coin--back {
+    right: 6%;
+    bottom: 6px;
+  }
+
+  .blinks__coin--front {
+    right: 26%;
+    top: 4px;
+  }
+
+  .blinks::after {
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 420px) {
+  .blinks__eyebrow-text {
+    font-size: 15px;
+  }
+
+  .blinks .answer_btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .blinks {
-    scroll-behavior: auto;
     animation: none;
+  }
+
+  .blinks .answer_btn {
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .blinks .answer_btn:active {
+    transform: none;
   }
 }
 

@@ -4,8 +4,14 @@
   gap: 12px;
   align-items: stretch;
   overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-gutter: stable;
+  padding-bottom: 12px;
+  margin: 0;
+}
+
+.allBlockEvent--grid {
+  flex-wrap: wrap;
+  overflow-x: visible;
+  justify-content: flex-start;
 }
 
 .allBlockEvent::-webkit-scrollbar {
@@ -152,12 +158,194 @@
   padding-right: 0.3em;
 }
 .btnBook {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
   font-size: 0.8em;
   border-radius: 0.5em;
   border: 1px solid var(--minor-white-f-2-f-1-f-320, rgba(242, 241, 243, 0.2));
   padding: 0.55em 0.88em 0.5em 0.88em;
   background: rgba(255, 255, 255, 0.06);
   white-space: nowrap;
+}
+
+.btnBook:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.eventBookOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.eventBookOverlay_backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+.eventBookModal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  max-height: min(90vh, 640px);
+  overflow-y: auto;
+  background: #141218;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 22px 22px 20px;
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+.eventBookModal_head {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.eventBookModal_title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+}
+
+.eventBookModal_event {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.eventBookModal_meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.eventBookForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eventBookForm_label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.eventBookForm_input,
+.eventBookForm_textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.eventBookForm_input:focus,
+.eventBookForm_textarea:focus {
+  outline: none;
+  border-color: rgba(141, 93, 218, 0.7);
+}
+
+.eventBookForm_input--invalid,
+.eventBookForm_textarea.eventBookForm_input--invalid {
+  border-color: rgba(255, 107, 107, 0.85);
+}
+
+.eventBookForm_input--invalid:focus,
+.eventBookForm_textarea.eventBookForm_input--invalid:focus {
+  border-color: rgba(255, 120, 120, 0.95);
+  box-shadow: 0 0 0 2px rgba(255, 80, 80, 0.2);
+}
+
+.eventBookForm_error {
+  font-size: 0.78rem;
+  color: #ff8a8a;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.eventBookForm_hint {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 4px;
+  align-self: flex-end;
+}
+
+.eventBookForm_textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.eventBookForm_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.eventBookModal_btn {
+  appearance: none;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+.eventBookModal_btnPrimary {
+  background: #8d5dda;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.eventBookModal_btnPrimary:hover {
+  filter: brightness(1.08);
+}
+
+.eventBookModal_btnGhost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.eventBookModal_btnGhost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.eventBookModal_done {
+  text-align: center;
+  padding: 12px 0 4px;
+}
+
+.eventBookModal_done p {
+  margin: 0 0 18px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .blockEvent {

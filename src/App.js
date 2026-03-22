@@ -3,6 +3,10 @@ import Header from "./Header/Header.jsx";
 import Community from "./Community/Community.jsx";
 import Watch from "./Watch/Watch.jsx";
 import Academy from "./Academy/Academy.jsx";
+import Admin from "./Admin/Admin.jsx";
+import RecentEventsPage from "./HomePage/Events/RecentEventsPage.jsx";
+import EarningsPage from "./EarningsPage/EarningsPage.jsx";
+import Live from "./Live/Live.jsx";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -15,6 +19,10 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="watch" element={<Watch />} />
           <Route path="academy" element={<Academy />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="events" element={<RecentEventsPage />} />
+          <Route path="earnings" element={<EarningsPage />} />
+          <Route path="live" element={<Live />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

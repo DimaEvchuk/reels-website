@@ -1,13 +1,46 @@
-.blocks {
-  /* Let nested blocks manage layout; this prevents accidental collapse in some browsers. */
-  min-width: 0;
-}
+@import url("https://fonts.cdnfonts.com/css/random-grotesque-standard?styles=138797");
+@import url("https://fonts.cdnfonts.com/css/pt-root-ui?styles=24037");
 
 .communityPage {
-  animation: pageIn 0.55s ease both;
+  --community-grid-cell: clamp(26px, 4.2vmin, 52px);
+  --community-grid-opacity: 0.11;
+  --community-grid-line: rgba(255, 255, 255, 0.72);
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0a0c10 0%, #080a0e 55%, #06080c 100%);
+  background-color: #080a0e;
+  animation: communityPageIn 0.55s ease both;
 }
 
-@keyframes pageIn {
+.communityPage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--community-grid-opacity);
+  background-image: linear-gradient(
+      var(--community-grid-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, var(--community-grid-line) 1px, transparent 1px);
+  background-size: var(--community-grid-cell) var(--community-grid-cell);
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+
+@keyframes communityPageIn {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -18,9 +51,63 @@
   }
 }
 
-@media (max-width: 900px) {
-  .blocks {
-    gap: 0;
+.communityPage__inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: max(12px, env(safe-area-inset-top, 0px));
+  padding-bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(clamp(16px, 4vw, 64px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 64px), env(safe-area-inset-right, 0px));
+}
+
+@media (max-width: 520px) {
+  .communityPage {
+    --community-grid-cell: clamp(22px, 5.5vmin, 38px);
+    --community-grid-opacity: 0.092;
+    --community-grid-line: rgba(255, 255, 255, 0.68);
+  }
+
+  .communityPage__inner {
+    padding-top: max(8px, env(safe-area-inset-top, 0px));
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+    padding-left: max(14px, env(safe-area-inset-left, 0px));
+    padding-right: max(14px, env(safe-area-inset-right, 0px));
+  }
+}
+
+@media (min-width: 1200px) {
+  .communityPage {
+    --community-grid-cell: clamp(40px, 3.6vmin, 60px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .communityPage {
+    --community-grid-cell: clamp(48px, 2.8vmin, 72px);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+  .communityPage {
+    --community-grid-cell: clamp(20px, 4vmin, 36px);
+    --community-grid-opacity: 0.078;
+    --community-grid-line: rgba(255, 255, 255, 0.62);
+  }
+
+  .communityPage__inner {
+    justify-content: flex-start;
   }
 }
 

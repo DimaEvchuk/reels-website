@@ -1,0 +1,335 @@
+@import url("https://fonts.cdnfonts.com/css/random-grotesque-standard?styles=138797");
+
+.earningsPage {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 24px 64px 56px;
+  margin: 0 auto;
+  background: linear-gradient(165deg, #4a2d8a 0%, #1a1028 45%, #0d0814 100%);
+  background-color: #0d0814;
+}
+
+.earningsPage_top {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.earningsPage_quizBtn {
+  appearance: none;
+  border: 1px solid rgba(139, 92, 246, 0.55);
+  background: rgba(139, 92, 246, 0.22);
+  color: #e9ddff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.earningsPage_quizBtn:hover {
+  background: rgba(139, 92, 246, 0.35);
+  border-color: rgba(167, 139, 250, 0.75);
+  color: #ffffff;
+}
+
+.earningsPage_back {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.earningsPage_back:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.earningsPage_header {
+  margin-bottom: 32px;
+}
+
+.earningsPage_eyebrow {
+  margin: 0 0 8px;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 255, 0.85);
+}
+
+.earningsPage_title {
+  margin: 0 0 12px;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.earningsPage_subtitle {
+  margin: 0;
+  max-width: 540px;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.earningsPage_summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 720px) {
+  .earningsPage_summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.earningsPage_balanceCard {
+  padding: 24px 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(146, 102, 227, 0.35) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+}
+
+.earningsPage_balanceLabel {
+  display: block;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 8px;
+}
+
+.earningsPage_balanceValue {
+  margin: 0 0 10px;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  font-size: clamp(2rem, 5vw, 2.65rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.earningsPage_balanceCurrency {
+  margin-left: 10px;
+  font-size: 0.45em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  vertical-align: 0.35em;
+}
+
+.earningsPage_balanceHint {
+  margin: 0;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  color: #9fe7b8;
+}
+
+.earningsPage_statCards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.earningsPage_stat {
+  flex: 1;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.earningsPage_statLabel {
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.earningsPage_statValue {
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.earningsPage_sectionTitle {
+  margin: 0 0 16px;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.earningsPage_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+
+.earningsPage_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.earningsPage_row:last-child {
+  border-bottom: none;
+}
+
+.earningsPage_rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.earningsPage_rowTitle {
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.earningsPage_rowDate {
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.earningsPage_rowAmount {
+  font-family: "PT Root UI", "PTRootUIWebRegular", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.earningsPage_rowAmount--credit {
+  color: #9fe7b8;
+}
+
+.earningsPage_rowAmount--debit {
+  color: #ffb4a8;
+}
+
+@media (max-width: 900px) {
+  .earningsPage {
+    padding: 20px 18px 48px;
+  }
+}
+
+/* Quiz modal (Figma: centered card over dimmed backdrop) */
+.earningsQuizModal_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.62);
+  box-sizing: border-box;
+}
+
+.earningsQuizModal_dialog {
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
+  padding: 40px 24px 36px;
+  border-radius: 28px;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.earningsQuizModal_icon {
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 0;
+}
+
+.earningsQuizModal_title {
+  margin: 0 0 14px;
+  font-family: "Random Grotesque Standard Bold", "PTRootUIWebRegular", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.earningsQuizModal_subtitle {
+  margin: 0 0 28px;
+  font-family: "PTRootUIWebRegular", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #888888;
+}
+
+.earningsQuizModal_primary {
+  width: 100%;
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-family: "PTRootUIWebRegular", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #8b5cf6;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.earningsQuizModal_primary:hover {
+  background: #7c3aed;
+}
+
+.earningsQuizModal_primary:active {
+  transform: scale(0.98);
+}
+
+.earningsQuizModal_skip {
+  margin-top: 16px;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 8px 12px;
+  font-family: "PTRootUIWebRegular", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #888888;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.earningsQuizModal_skip:hover {
+  color: #b0b0b0;
+}

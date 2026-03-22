@@ -1,0 +1,91 @@
+.quizConfetti_layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.quizConfetti_svgBurst {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 140%;
+  min-width: 900px;
+  height: 120%;
+  min-height: 700px;
+  transform: translate(-50%, -50%);
+}
+
+.quizConfetti_burstRect {
+  filter: blur(28px);
+  animation: quizConfetti-burstPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes quizConfetti-burstPulse {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.48;
+  }
+}
+
+.quizConfetti_svgBit {
+  animation: quizConfetti-bitTwinkle 2.6s ease-in-out infinite;
+}
+
+@keyframes quizConfetti-bitTwinkle {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.quizConfetti_particles {
+  position: absolute;
+  inset: 0;
+}
+
+.quizConfetti_piece {
+  position: absolute;
+  top: -16px;
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.35);
+  animation-name: quizConfetti-fall;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+@keyframes quizConfetti-fall {
+  0% {
+    transform: translate3d(var(--quiz-drift, 0), -12vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(calc(var(--quiz-drift, 0) * -1.8), 108vh, 0) rotate(var(--quiz-spin-end, 540deg));
+    opacity: 0.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quizConfetti_burstRect,
+  .quizConfetti_svgBit,
+  .quizConfetti_piece {
+    animation: none !important;
+  }
+
+  .quizConfetti_piece {
+    opacity: 0.5;
+    top: 20%;
+  }
+}
