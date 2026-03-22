@@ -7,7 +7,7 @@ const QA = () => {
   return (
     <div>
     <div className="qa">
-      <div className="titleQA">Q&A</div>
+        <div className="titleQA">Investors</div>
       <div>
         <div className="calendar">
           <svg

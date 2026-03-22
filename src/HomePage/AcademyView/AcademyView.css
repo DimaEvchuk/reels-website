@@ -17,15 +17,19 @@
 }
 
 .seeAll {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   color: #8d5dda;
-  font-size: 0.95em;
+  font-size: 14px;
   font-weight: 400;
+  cursor: default;
 }
 
 .academyRow {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 12px;
   overflow-x: auto;
   padding-bottom: 8px;
   scrollbar-gutter: stable;
@@ -42,8 +46,8 @@
 
 .academyCard {
   flex: 0 0 150px;
-  height: 232px;
-  border-radius: 20px;
+  height: 222px;
+  border-radius: 16px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
   position: relative;
@@ -56,7 +60,7 @@
 
 .academyCard__media {
   position: relative;
-  height: 155px;
+  height: 148px;
 }
 
 .academyCard__media video {
