@@ -10,7 +10,7 @@ const HomePage = () => {
     <div className="home">
       <div className="background">
         <div className="homePage">
-          <div className="title">Community</div>
+          <div className="title">Discover The Best In</div>
           <div className="blocks">
             <QA />
             <Events />
