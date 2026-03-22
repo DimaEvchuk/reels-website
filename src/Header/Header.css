@@ -21,7 +21,31 @@
 .appMain {
   margin-left: 270px;
   min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .appMain--routeIn {
+    animation: appMainRouteIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes appMainRouteIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appMain--routeIn {
+    animation: none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -79,25 +103,7 @@
   padding: 22px 16px 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.header_smallIcons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.header_smallDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.header_smallDot--active {
-  background: rgba(237, 34, 93, 0.95);
-  box-shadow: 0 0 0 4px rgba(237, 34, 93, 0.15);
+  justify-content: flex-end;
 }
 
 .header_profile {
@@ -110,6 +116,13 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header_profile:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .header_search {
@@ -174,6 +187,11 @@
 
 .navItem svg {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.navItem_academyIcon {
+  flex-shrink: 0;
+  display: block;
 }
 
 .navItem_label {

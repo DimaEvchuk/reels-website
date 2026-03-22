@@ -1,7 +1,13 @@
 .watchLivePage {
+  box-sizing: border-box;
   min-height: 100vh;
+  height: 100vh;
+  min-height: 100dvh;
+  height: 100dvh;
   background: linear-gradient(185deg, #070707 -12%, #000 71.14%);
-  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
   animation: pageIn 0.55s ease both;
 }
 
@@ -17,7 +23,9 @@
 }
 
 .watchLiveTop {
+  flex-shrink: 0;
   max-width: 1080px;
+  width: 100%;
   margin: 0 auto;
   padding: 22px 64px 10px;
   color: #ffffff;
@@ -26,18 +34,22 @@
   justify-content: space-between;
 }
 
-.watchLiveTitle {
-  font-family: "Random Grotesque Standard Bold", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.watch_back {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.watchBackArrow {
-  font-size: 24px;
-  opacity: 0.95;
+.watch_back:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .watchSkipTop {
@@ -57,25 +69,49 @@
 }
 
 .watchLiveLayout {
+  flex: 1 1 auto;
+  min-height: 0;
+  box-sizing: border-box;
   max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 64px;
+  width: calc(100% - 96px);
+  margin: 0 auto 16px;
+  padding: 20px 24px 24px;
   display: flex;
   gap: 22px;
-  align-items: flex-start;
+  align-items: stretch;
+  background-color: #1e1e22;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.watchPlayerReveal {
+  flex: 1 1 600px;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .watchPlayer {
   flex: 1 1 600px;
   min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.watchEpisodeList > .scrollReveal {
+  width: 100%;
 }
 
 .watchPlayerFrame {
-  height: min(520px, 70vh);
-  border-radius: 20px;
+  flex: 1 1 auto;
+  min-height: min(280px, 42vh);
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
-  background: rgba(255, 255, 255, 0.06);
+  background: #141414;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 .watchPlayerVideo {
@@ -86,27 +122,39 @@
   object-fit: cover;
 }
 
-.watchPlayerGradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.1));
-}
-
 .watchPlayerCount {
   position: absolute;
   left: 18px;
   top: 18px;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
-  border: 2px solid rgba(77, 171, 48, 0.85);
+  background: conic-gradient(
+    rgba(77, 171, 48, 0.95) var(--watch-ring-pct, 25%),
+    rgba(255, 255, 255, 0.12) 0
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(77, 171, 48, 0.95);
+  z-index: 2;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.watchPlayerCount::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.watchPlayerCount__label {
+  position: relative;
+  z-index: 1;
   font-weight: 800;
-  font-size: 14px;
-  background: rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  color: rgba(120, 200, 90, 0.98);
+  font-family: "Random Grotesque Standard Bold", sans-serif;
 }
 
 .watchPlayerMeta {
@@ -163,102 +211,267 @@
 }
 
 .watchEpisodeList {
-  flex: 0 0 360px;
-  max-width: 360px;
+  flex: 0 0 420px;
+  max-width: 420px;
+  min-height: 0;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
+/* Прокрутка при >3 карточках: высота колонки = высоте плеера */
+.watchEpisodeList.watchEpisodeList--scroll {
+  flex: 0 0 420px;
+  max-height: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding-right: 6px;
+  scrollbar-gutter: stable;
+}
+
+.watchEpisodeList.watchEpisodeList--scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.watchEpisodeList.watchEpisodeList--scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.watchEpisodeList.watchEpisodeList--scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+/* Горизонтальная карточка рилса (как в макете) */
 .watchEpisodeCard {
   appearance: none;
-  border: 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  padding: 18px;
+  box-sizing: border-box;
   cursor: pointer;
-  overflow: hidden;
   text-align: left;
   color: #ffffff;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  background: #1c1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  opacity: 0.5;
+  filter: saturate(0.85);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+    opacity 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
 }
 
 .watchEpisodeCard:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.12);
+  opacity: 0.78;
 }
 
 .watchEpisodeCard.active {
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: inset 0 0 0 1px rgba(77, 171, 48, 0.35);
+  opacity: 1;
+  filter: none;
+  background: #252528;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 1px rgba(77, 171, 48, 0.45), 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
-.watchEpisodeMedia {
-  position: relative;
-  height: 92px;
-  background: rgba(255, 255, 255, 0.05);
+.watchEpisodeThumb {
+  flex: 0 0 auto;
+  width: 102px;
+  align-self: center;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.watchEpisodeMedia img {
+.watchEpisodeThumbVideo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.watchEpisodeMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2px 0 0;
+}
+
+.watchEpisodeTopRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.watchEpisodeCreator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.watchEpisodeCreatorAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6b4bce, #8d5dda);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: "PTRootUIWebRegular", sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.watchEpisodeCreatorName {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.01em;
+  max-width: 120px;
+  text-align: left;
+  word-break: break-word;
 }
 
 .watchEpisodeBadge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(239, 123, 60, 0.95);
-  padding: 6px 10px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px 7px 10px;
   border-radius: 999px;
+  background: #ef7b3c;
   font-size: 12px;
   font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
 }
 
-.watchEpisodeBody {
-  padding: 12px 12px 12px;
+.watchEpisodeBadge svg {
+  flex-shrink: 0;
 }
 
 .watchEpisodeTitle {
-  font-family: "PTRootUIWebRegular", sans-serif;
+  font-family: "Random Grotesque Standard Bold", sans-serif;
   font-weight: 700;
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
 }
 
 .watchEpisodeDesc {
-  opacity: 0.7;
+  margin: 0;
+  font-family: "PTRootUIWebRegular", sans-serif;
   font-size: 12px;
-  margin-top: 6px;
+  line-height: 1.45;
+  color: #8e8e93;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .watchEpisodeTime {
-  opacity: 0.65;
-  font-size: 11px;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.watchEpisodeTimeIcon {
+  font-size: 16px;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 900px) {
-  .watchLiveTop,
-  .watchLiveLayout {
+  .watchLiveTop {
     padding-left: 18px;
     padding-right: 18px;
   }
 
   .watchLiveLayout {
+    width: calc(100% - 36px);
+    margin-left: 18px;
+    margin-right: 18px;
+    padding: 16px 16px 20px;
     flex-direction: column;
-    gap: 14px;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .watchPlayerReveal,
+  .watchPlayer {
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
   .watchEpisodeList {
     flex: 0 0 auto;
     max-width: none;
+    width: 100%;
+    align-self: stretch;
+    max-height: none;
+  }
+
+  .watchEpisodeList.watchEpisodeList--scroll {
+    flex: 0 1 auto;
+    max-height: min(420px, 42vh);
+  }
+
+  .watchEpisodeCard {
+    flex-direction: row;
+    padding: 16px;
+  }
+
+  .watchEpisodeThumb {
+    width: 88px;
+  }
+}
+
+@media (max-width: 480px) {
+  .watchEpisodeCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .watchEpisodeThumb {
+    width: 100%;
+    max-width: 160px;
+    align-self: center;
+    aspect-ratio: 9 / 16;
+  }
+
+  .watchEpisodeTopRow {
+    flex-wrap: wrap;
   }
 }
 
